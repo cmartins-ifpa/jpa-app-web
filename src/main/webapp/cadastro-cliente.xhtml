@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Testes JPA+JSF</title>
+</h:head>
+<h:body>
+    <h1><p:outputLabel id="titulo" value="Cadastro de Clientes"/> </h1>
+
+	<h:form id="formulario">
+    	<p:panel id="panel" header="Cadastro">
+	        <p:focus context="panel"/>
+
+			<p:commandButton id="btnovo" value="Novo Cliente" 
+			     update="formulario" ajax="true" 
+			     action="#{clienteMB.novoCliente}" />
+					
+			<h:panelGrid id="dados" columns="2">
+			    <p:outputLabel for="input-nome" value="Nome:" />
+				<p:inputText id="input-nome" label="Nome" value="#{clienteMB.cliente.nome}"
+			        	required="true" maxlength="60" size="60" />
+			    
+			    <p:outputLabel for="input-end" value="Endereço:" />
+				<p:inputText id="input-end" label="Endereco" value="#{clienteMB.cliente.endereco}"
+			       	size="100"	maxlength="100" required="true" />
+			       	
+			</h:panelGrid>
+			
+			<h:commandButton id="salvar" value="Salvar"
+				action="#{clienteMB.salvar}" />
+			
+			<p:messages />
+			
+			<p:growl id="msgs" showDetail="true" skipDetailIfEqualsSummary="true" />
+		</p:panel>
+	</h:form>
+      
+     <h2><p:outputLabel id="titulo-lista" value="Lista de Clientes"/> </h2>
+     
+     <h:form>
+     <p:dataTable id="clientesList" var="cli" value="#{clienteMB.clientes}"  
+        rows="6" paginator="true" >
+	     <p:column headerText="Id">
+	        <h:outputText value="#{cli.id}" />
+	     </p:column>	 
+	    <p:column headerText="Nome">
+	        <h:outputText value="#{cli.nome}" />
+	    </p:column>
+ 		<p:column headerText="Endereço">
+	        <h:outputText value="#{cli.endereco}" />
+	    </p:column>	    
+	    <p:column headerText="Operações">
+           <p:commandButton update="formulario" 
+                        value="Alterar" icon="fa-edit"
+                        actionListener="#{clienteMB.update(cli.id)}" 
+                        ajax="true" styleClass="ui-priority-primary">
+           </p:commandButton>
+           <p:commandButton update="clientesList formulario" 
+                        value="Excluir" icon="ui-icon-closethick"
+                        actionListener="#{clienteMB.delete(cli.id)}"
+                        ajax="true" styleClass="ui-priority-primary">
+              <p:confirm header="Confirmação" message="Confirma a exclusão?" icon="pi pi-exclamation-triangle" />
+           </p:commandButton>
+		</p:column>		        
+     </p:dataTable>
+     
+     <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+        <p:commandButton value="Sim" type="button" styleClass="ui-confirmdialog-yes" icon="pi pi-check" />
+        <p:commandButton value="Nao" type="button" styleClass="ui-confirmdialog-no" icon="pi pi-times" />
+     </p:confirmDialog>
+     
+    </h:form>
+</h:body>
+</html>
