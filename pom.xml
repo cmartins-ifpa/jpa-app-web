@@ -112,18 +112,24 @@
 			</resource>
 		</resources>
 		<plugins>
+
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.8.1</version>
 				<configuration>
-					<release>11</release>
+					<source>1.8</source>
+					<target>1.8</target>
 				</configuration>
+
 			</plugin>
+
+
 			<plugin>
 				<artifactId>maven-war-plugin</artifactId>
 				<version>3.2.3</version>
 			</plugin>
 			
+			 
 			<!-- Plugin para rodar o Tomcat no Heroku -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
