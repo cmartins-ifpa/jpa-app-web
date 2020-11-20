@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Testes JPA+JSF</title>
+</h:head>
+<h:body>
+    <h1><p:outputLabel id="titulo" value="Cadastro de Clientes"/> </h1>
+
+	<h:form id="formulario">
+    	<p:panel id="panel" header="Sistema de Cadastro">
+            
+       	 <p:link outcome="cadastro-cliente" value="Cadastro de Clientes">
+             <f:param name="cliID" value="10" />
+         </p:link>
+			
+			<p:messages />
+			
+		</p:panel>
+	</h:form>
+
+</h:body>
+</html>
