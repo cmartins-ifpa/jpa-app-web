@@ -28,7 +28,7 @@ public class WebFiltros implements Filter {
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
 		// trata o encoding (acentuação) nas requisicoes para o servidor
-		request.setCharacterEncoding("UTF-8");
+	    request.setCharacterEncoding("UTF-8");
 
 		// instrui o navegador a não armazenar em cache as páginas JSF dinâmicas.
 		// O Filtro é mapeado no nome do servlet de FacesServlet e
