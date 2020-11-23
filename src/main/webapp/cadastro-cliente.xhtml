@@ -7,43 +7,52 @@
 <h:head>
 	<title>Testes JPA+JSF</title>
 </h:head>
-<h:body>
+<h:body class="ui-fluid">
+ 
     <h1><p:outputLabel id="titulo" value="Cadastro de Clientes"/> </h1>
 
-	<h:form id="formulario">
+	<h:form id="formulario">	  
     	<p:panel id="panel" header="Cadastro">
 	        <p:focus context="panel"/>
 
 			<p:commandButton id="btnovo" value="Novo Cliente" 
+			     style="margin-top:10px;margin-bottom:10px; width:200px;display:block"
 			     update="formulario" ajax="true" 
 			     action="#{clienteMB.novoCliente}" />
 					
-			<h:panelGrid id="dados" columns="2">
+			<p:panelGrid id="dados" columns="2" 
+			     columnClasses="ui-g-12 ui-md-2,ui-g-12 ui-md-4"
+			     layout="grid" styleClass="ui-panelgrid-blank ui-fluid">
 			    <p:outputLabel for="input-nome" value="Nome:" />
 				<p:inputText id="input-nome" label="Nome" value="#{clienteMB.cliente.nome}"
 			        	required="true" maxlength="60" size="60" />
 			    
 			    <p:outputLabel for="input-end" value="Endereço:" />
 				<p:inputText id="input-end" label="Endereco" value="#{clienteMB.cliente.endereco}"
-			       	size="100"	maxlength="100" required="true" />
+			       	size="60"	maxlength="100" required="true" />
 			       	
-			</h:panelGrid>
+			</p:panelGrid>
 			
-			<h:commandButton id="salvar" value="Salvar"
-				action="#{clienteMB.salvar}" />
+			<p:commandButton id="salvar" value="Salvar"
+			     style="width:200px;display:block"
+			     update="listagem-cli" ajax="true"
+				actionListener="#{clienteMB.salvar}" />
 			
 			<p:messages />
 			
 			<p:growl id="msgs" showDetail="true" skipDetailIfEqualsSummary="true" />
 			
 		</p:panel>
+		
+	  
 	</h:form>
-      
+ 
      <h2><p:outputLabel id="titulo-lista" value="Lista de Clientes"/> </h2>
      
-     <h:form>
+     <h:form id="listagem-cli">
      <p:dataTable id="clientesList" var="cli" value="#{clienteMB.clientes}"  
-        rows="6" paginator="true" >
+        rows="6" paginator="true"
+        reflow="true" >
 	     <p:column headerText="Id">
 	        <h:outputText value="#{cli.id}" />
 	     </p:column>	 
