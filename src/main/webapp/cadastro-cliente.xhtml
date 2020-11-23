@@ -25,7 +25,8 @@
 			     layout="grid" styleClass="ui-panelgrid-blank ui-fluid">
 			    <p:outputLabel for="input-nome" value="Nome:" />
 				<p:inputText id="input-nome" label="Nome" value="#{clienteMB.cliente.nome}"
-			        	required="true" maxlength="60" size="60" />
+			        	required="true" maxlength="60" size="60"
+			        	requiredMessage="Nome: Campo obrigatório!" />
 			    
 			    <p:outputLabel for="input-end" value="Endereço:" />
 				<p:inputText id="input-end" label="Endereco" value="#{clienteMB.cliente.endereco}"
@@ -61,12 +62,14 @@
  		<p:column headerText="Endereço">
 	        <h:outputText value="#{cli.endereco}" />
 	    </p:column>	    
-	    <p:column headerText="Operações">
+	    <p:column headerText="Alt.">
            <p:commandButton update="formulario" 
                         value="Alterar" icon="fa-edit"
                         actionListener="#{clienteMB.update(cli.id)}" 
                         ajax="true" styleClass="ui-priority-primary">
            </p:commandButton>
+		</p:column>
+		<p:column headerText="Exc.">
            <p:commandButton update="clientesList formulario" 
                         value="Excluir" icon="ui-icon-closethick"
                         actionListener="#{clienteMB.delete(cli.id)}"
