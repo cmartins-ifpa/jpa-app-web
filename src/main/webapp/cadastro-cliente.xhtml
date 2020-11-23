@@ -35,16 +35,15 @@
 			
 			<p:commandButton id="salvar" value="Salvar"
 			     style="width:200px;display:block"
-			     update="listagem-cli" ajax="true"
+			     update="listagem-cli formulario" ajax="true"
 				actionListener="#{clienteMB.salvar}" />
-			
+
 			<p:messages />
 			
 			<p:growl id="msgs" showDetail="true" skipDetailIfEqualsSummary="true" />
 			
 		</p:panel>
-		
-	  
+			  
 	</h:form>
  
      <h2><p:outputLabel id="titulo-lista" value="Lista de Clientes"/> </h2>
