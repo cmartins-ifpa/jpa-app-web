@@ -52,6 +52,7 @@
      <h:form id="listagem-cli">
      <p:dataTable id="clientesList" var="cli" value="#{clienteMB.clientes}"  
         rows="6" paginator="true"
+        tableStyle="table-layout: auto;"
         reflow="true" >
 	     <p:column headerText="Id">
 	        <h:outputText value="#{cli.id}" />
