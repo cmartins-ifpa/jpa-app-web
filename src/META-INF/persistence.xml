@@ -11,17 +11,7 @@
 		<class>entidades.Cliente</class>
 		<class>entidades.Pedido</class>
 		
-		<properties>
-			<!--  Config EclipseLink 
-			    <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />
-				<property name="javax.persistence.jdbc.url" value="jdbc:postgresql://ec2-54-235-116-235.compute-1.amazonaws.com:5432/depj865bpfl4nh" />
-				<property name="javax.persistence.jdbc.user" 	value="bnkoporvntbssh" />
-				<property name="javax.persistence.jdbc.password" value="c2254b30070a934db62a877908ac30fdbe8292049d5079a154a01c36571c1bd4" />
-				<property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
-				 
-				<property name="eclipselink.jdbc.property.useSSL" value="true" />
-				<property name="eclipselink.jdbc.property.requireSSL" value="true" />
-		    -->
+		<properties>			
 	        	<!--  Config Hibernate -->
 	        	<!-- jdbc:postgresql://localhost:5432/ifpa   -->
 			<property name="hibernate.connection.url" 
